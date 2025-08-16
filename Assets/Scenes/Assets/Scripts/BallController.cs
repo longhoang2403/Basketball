@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    public float fixedZ = -24f;              // Z cố định khi kéo
-    public float throwForce = 500f;          // Lực ném
-    public float upForceMultiplier = 0.5f;   // Lực nâng bóng
-    public LayerMask ballTapLayer;           // Layer bóng (gán trong Inspector)
+    public float fixedZ = -24f;
+    public float throwForce = 500f;
+    public float upForceMultiplier = 0.5f;
+    public LayerMask ballTapLayer;
 
     private GameObject selectedBall;
     private Rigidbody selectedRb;
@@ -28,6 +28,13 @@ public class BallController : MonoBehaviour
                     selectedBall = hit.collider.gameObject;
                     selectedRb = selectedBall.GetComponent<Rigidbody>();
                     selectedRb.isKinematic = true;
+
+                    // ✅ Gán đúng bóng đang chọn
+                    BallRotation ballRotation = selectedBall.GetComponent<BallRotation>();
+                    if (ballRotation != null)
+                    {
+                        ballRotation.isHitByRay = true;
+                    }
                 }
             }
         }
@@ -35,12 +42,11 @@ public class BallController : MonoBehaviour
         // --- Kéo bóng ---
         if (selectedBall != null && Input.GetMouseButton(0))
         {
-            // Kiểm tra nếu chuột ra ngoài màn hình → thả bóng
             if (Input.mousePosition.x < 0 || Input.mousePosition.x > Screen.width ||
                 Input.mousePosition.y < 0 || Input.mousePosition.y > Screen.height)
             {
-                ReleaseBall(); // Gọi hàm thả bóng
-                return; // Dừng xử lý kéo
+                ReleaseBall();
+                return;
             }
 
             Vector3 mousePos = Input.mousePosition;
@@ -52,14 +58,13 @@ public class BallController : MonoBehaviour
             lastMouseWorldPos = worldPos;
         }
 
-        // --- Thả và ném bóng ---
+        // --- Thả bóng ---
         if (selectedBall != null && Input.GetMouseButtonUp(0))
         {
             ReleaseBall();
         }
     }
 
-    // --- Hàm thả bóng ---
     private void ReleaseBall()
     {
         selectedRb.isKinematic = false;
@@ -69,6 +74,13 @@ public class BallController : MonoBehaviour
         throwDir.y += upForceMultiplier;
 
         selectedRb.AddForce(throwDir.normalized * throwForce);
+
+        // ✅ Gán lại isHitByRay = false cho đúng bóng
+        BallRotation ballRotation = selectedBall.GetComponent<BallRotation>();
+        if (ballRotation != null)
+        {
+            ballRotation.isHitByRay = false;
+        }
 
         selectedBall = null;
         selectedRb = null;
