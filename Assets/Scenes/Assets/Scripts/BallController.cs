@@ -25,15 +25,18 @@ public class BallController : MonoBehaviour
             {
                 if (hit.collider.CompareTag("ballTag"))
                 {
-                    selectedBall = hit.collider.gameObject;
-                    selectedRb = selectedBall.GetComponent<Rigidbody>();
-                    selectedRb.isKinematic = true;
+                    GameObject ball = hit.collider.gameObject;
+                    BallRotation ballRotation = ball.GetComponent<BallRotation>();
 
-                    // ✅ Gán đúng bóng đang chọn
-                    BallRotation ballRotation = selectedBall.GetComponent<BallRotation>();
-                    if (ballRotation != null)
+                    if (ballRotation != null && ballRotation.floors)
                     {
+                        selectedBall = ball;
+                        selectedRb = selectedBall.GetComponent<Rigidbody>();
+                        selectedRb.isKinematic = true;
+
                         ballRotation.isHitByRay = true;
+                        ballRotation.floors = false; // Đánh dấu là đang bay
+                        ballRotation.baskets = false;
                     }
                 }
             }
@@ -75,12 +78,13 @@ public class BallController : MonoBehaviour
 
         selectedRb.AddForce(throwDir.normalized * throwForce);
 
-        // ✅ Gán lại isHitByRay = false cho đúng bóng
+        //Gán lại isHitByRay = false cho đúng bóng
         BallRotation ballRotation = selectedBall.GetComponent<BallRotation>();
         if (ballRotation != null)
         {
             ballRotation.isHitByRay = false;
         }
+     
 
         selectedBall = null;
         selectedRb = null;
