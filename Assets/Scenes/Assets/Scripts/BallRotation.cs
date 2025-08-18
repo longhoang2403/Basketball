@@ -10,7 +10,7 @@ public class BallRotation : MonoBehaviour
     public bool floors = false;
     private Vector3 lastPosition;
     public bool isHitByRay;
- 
+    public ParticleSystem myParticle;
     void Start()
     {
         lastPosition = transform.position;
@@ -23,7 +23,7 @@ public class BallRotation : MonoBehaviour
         Vector3 movementDelta = currentPosition - lastPosition;
         float movementSpeed = movementDelta.magnitude / Time.deltaTime;
       //  Debug.Log("Đang bị tia chạm: " + isHitByRay);
-        // 3. Nếu position thay đổi và KHÔNG bị tia chạm → xoay
+        // 2. Nếu position thay đổi và KHÔNG bị tia chạm → xoay
         if (movementDelta != Vector3.zero && !isHitByRay)
         {
             float spinSpeed = movementSpeed * rotationMultiplier * Time.deltaTime;
@@ -32,6 +32,21 @@ public class BallRotation : MonoBehaviour
             transform.Rotate(Vector3.right * spinSpeed, Space.World);
             transform.Rotate(Vector3.up * spinSpeed, Space.World);
             transform.Rotate(Vector3.forward * spinSpeed, Space.World);
+        }
+        // 3. Điều khiển Particle System
+        if (!isHitByRay && !floors)
+        {
+            if (!myParticle.isPlaying)
+            {
+                myParticle.Play();
+            }
+        }
+        else
+        {
+            if (myParticle.isPlaying)
+            {
+                myParticle.Stop();
+            }
         }
 
         // Lưu lại vị trí hiện tại để so sánh frame sau

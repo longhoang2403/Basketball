@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class Morphology : MonoBehaviour
 {
-    public int materialIndex;
-    public GameObject highlightImage; // Gán hình ảnh từ Inspector
+    public GameObject highlightImage;
+    public float scaleSpeed ;
+    public float minScale ;
+    public float maxScale;
 
     private bool isSelected = false;
-    private float scaleSpeed = 2f;
-    private float minScale = 2.2f;
-    private float maxScale = 2.5f;
-    private float currentScale = 2.5f;
     private bool scalingDown = true;
+    private float currentScale = 1f;
 
     void Update()
     {
         if (isSelected && highlightImage != null)
         {
-            // Hiệu ứng scale nhịp thở
             float delta = scaleSpeed * Time.deltaTime;
+
             if (scalingDown)
             {
                 currentScale -= delta;
@@ -48,6 +47,24 @@ public class Morphology : MonoBehaviour
                 currentScale = maxScale;
                 scalingDown = true;
             }
+        }
+    }
+
+    // Khi chạm vào vùng "tap check"
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Check"))
+        {
+            SetSelected(true);
+        }
+    }
+
+    // Khi rời khỏi vùng "tap check"
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Check"))
+        {
+            SetSelected(false);
         }
     }
 }

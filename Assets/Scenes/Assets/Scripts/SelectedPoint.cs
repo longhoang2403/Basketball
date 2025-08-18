@@ -1,30 +1,49 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectedPoint : MonoBehaviour
 {
-    void OnTriggerStay(Collider other)
+    public GameObject[] targetObjects; // Các Obj1 → Obj5
+    public Material[] ballMaterials;   // Material tương ứng với Ball1 → Ball8
+    public string[] ballTags;          // Tag của Ball1 → Ball8 (ví dụ: "Ball1", "Ball2", ...)
+    public GameObject panel;
+    public GameObject gameplay;
+    public GameObject Seceltball;
+
+    // Gọi từ nút UI
+    public void ConfirmSelection()
     {
-        if (other.CompareTag("Ball"))
+        panel.SetActive(false);
+        gameplay.SetActive(true);
+        Seceltball.SetActive(true);
+    }
+    public void OpenSeceltball()
+    {
+        gameplay.SetActive(false);
+        panel.SetActive(true);
+        Seceltball.SetActive(false);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        for (int i = 0; i < ballTags.Length; i++)
         {
-            Morphology ball = other.GetComponent<Morphology>();
-            if (ball != null)
+            if (other.CompareTag(ballTags[i]))
             {
-                ball.SetSelected(true);
-                // x? l� ch?n v?t li?u nh? tr??c
+                ApplyMaterial(ballMaterials[i]);
+                break;
             }
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void ApplyMaterial(Material mat)
     {
-        if (other.CompareTag("Ball"))
+        foreach (GameObject obj in targetObjects)
         {
-            Morphology ball = other.GetComponent<Morphology>();
-            if (ball != null)
+            MeshRenderer renderer = obj.GetComponent<MeshRenderer>();
+            if (renderer != null)
             {
-                ball.SetSelected(false);
+                renderer.material = mat;
             }
         }
     }
