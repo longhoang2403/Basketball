@@ -8,15 +8,13 @@ TagManager:
   - Ball
   - basket
   - floor
-  - Check
-  - Ball0
-  - Ball1
-  - Ball2
-  - Ball3
-  - Ball4
-  - Ball5
-  - Ball6
-  - Ball7
+  - ball1
+  - ball2
+  - ball3
+  - ball4
+  - ball5
+  - ball6
+  - ball7
   layers:
   - Default
   - TransparentFX
@@ -53,7 +51,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: New Layer 1
-    uniqueID: 3250388815
     locked: 0
