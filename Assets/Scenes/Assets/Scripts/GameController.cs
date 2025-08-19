@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public TextMeshProUGUI timerText; // Gán từ Inspector
-    public TextMeshProUGUI HighestText;
-    public TextMeshProUGUI SccoreText;
-    public TextMeshProUGUI NotificationText;
+    public Text timerText; // Gán từ Inspector
+    public Text HighestText;
+    public Text SccoreText;
+    public Text NotificationText;
     public int Score = 0;
     public int Highest = 0;
     public int HighestCurrently = 0;
     private float playTime = 0f;
-
+    private bool hasShownNotification = false;
+    public ParticleSystem startchainParticle;
+    public GameObject targetObject;
     void Update()
     {
         playTime += Time.deltaTime;
@@ -26,10 +28,29 @@ public class GameController : MonoBehaviour
             HighestText.text = Highest.ToString();
         }
         SccoreText.text = Score.ToString();
-        if (HighestCurrently == 1)
+        if (HighestCurrently == 1 && !hasShownNotification)
         {
+            AudioSource otherAudio = targetObject.GetComponent<AudioSource>();
+            otherAudio.Play();
             NotificationText.text = "Perfect Dunk";
+            startchainParticle.Play();
+            
+            StartCoroutine(WaitAndDoSomething());
+            hasShownNotification = true;
         }
 
+        if (HighestCurrently != 1)
+        {
+            hasShownNotification = false;
+        }
+
+
     }
+    IEnumerator WaitAndDoSomething()
+    {
+        yield return new WaitForSeconds(1f); // Chờ 1 giây
+        startchainParticle.Stop();
+        NotificationText.text = "";
+    }
+
 }
