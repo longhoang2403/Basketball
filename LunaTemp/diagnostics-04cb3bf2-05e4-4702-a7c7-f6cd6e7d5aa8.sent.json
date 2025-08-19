@@ -1,0 +1,256 @@
+{
+  "BuildID": "04cb3bf2-05e4-4702-a7c7-f6cd6e7d5aa8",
+  "Command": "project:build",
+  "ProjectID": "d3397abdb64b32645b98120978015efe",
+  "ProjectStateHash": "a35d31d54e2df372901f7583927af3add9d589f5811d7abed8a16b7712ebff26",
+  "StageCompletedAt": 3,
+  "EarliestFatalError": 3,
+  "StartTime": 1755615163469,
+  "EndTime": 1755615183312,
+  "PlaygroundUserID": 26725,
+  "OperatingSystem": "win32",
+  "UnityPackageID": null,
+  "TargetPlatform": "develop",
+  "UnityVersion": "2022.3.62f1",
+  "LunaVersion": "6.4.0",
+  "LogCount": 9,
+  "Logs": [
+    {
+      "LogID": "6e43230f-adb1-44cb-afed-851161319a54",
+      "Order": 6,
+      "Timestamp": 1755615183449,
+      "Stage": 3,
+      "ErrorType": 1,
+      "ErrorCode": "LP3006",
+      "Description": "You are not using the Luna API: Playable.InstallFullGame",
+      "Details": [
+        "You are not using the Luna API: Playable.InstallFullGame. Some ad networks require these calls. Please add these calls to ensure your playable works on all ad networks. Check documentation for more information."
+      ],
+      "DescriptionValues": [
+        "Playable",
+        "InstallFullGame"
+      ],
+      "DetailsValues": [
+        "Playable",
+        "InstallFullGame"
+      ],
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "d6e27496-abc0-4127-8a6e-84b7310ab703",
+      "Order": 6,
+      "Timestamp": 1755615183449,
+      "Stage": 3,
+      "ErrorType": 1,
+      "ErrorCode": "LP3015",
+      "Description": "You are not the Game Ended API: LifeCycle.GameEnded",
+      "Details": [
+        "You are not using the Game Ended API: LifeCycle.GameEnded. Some ad networks require this call, please add the event to avoid the ad being rejected."
+      ],
+      "DescriptionValues": [
+        "LifeCycle",
+        "GameEnded"
+      ],
+      "DetailsValues": [
+        "LifeCycle",
+        "GameEnded"
+      ],
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "edfb45ad-c238-43f5-91fb-2e310da4493c",
+      "Order": 6,
+      "Timestamp": 1755615183450,
+      "Stage": 3,
+      "ErrorType": 3,
+      "ErrorCode": "LP3007",
+      "Description": "You are not using any custom events",
+      "Details": [
+        "You are not using any custom events. It is recommended to use custom events to have a better understanding of the playable."
+      ],
+      "DescriptionValues": [
+        ""
+      ],
+      "DetailsValues": [
+        ""
+      ],
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "fbe7ee7c-fbad-4d50-a2e2-4ea6aeaa8ce6",
+      "Order": 6,
+      "Timestamp": 1755615183451,
+      "Stage": 3,
+      "ErrorType": 3,
+      "ErrorCode": "LP3011",
+      "Description": "You are not using any LunaPlaygroundFields attributes.",
+      "Details": [
+        "You are not using any LunaPlaygroundFields attributes, it allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
+      ],
+      "DescriptionValues": null,
+      "DetailsValues": null,
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "2c0d18d2-3e68-46ea-93fc-47edfa440343",
+      "Order": 0,
+      "Timestamp": 1755615167261,
+      "Stage": 1,
+      "ErrorType": 2,
+      "ErrorCode": "LP1016",
+      "Description": "Extensive usage of Rigidbody Component",
+      "Details": [
+        "There is extensive usage of the Rigidbody component.\nExcessive usage of any component can be detrimental to performance on lower and in some cases higher end devices, consider reducing the amount the component is used.\nRecommended count: 10, current count 19."
+      ],
+      "DescriptionValues": [
+        "Rigidbody"
+      ],
+      "DetailsValues": [
+        "Rigidbody",
+        "10",
+        "19"
+      ],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "a5034e9c-457b-4333-81ad-66dbaa184636",
+      "Order": 1,
+      "Timestamp": 1755615167261,
+      "Stage": 1,
+      "ErrorType": 2,
+      "ErrorCode": "LP1016",
+      "Description": "Extensive usage of ParticleSystem Component",
+      "Details": [
+        "There is extensive usage of the ParticleSystem component.\nExcessive usage of any component can be detrimental to performance on lower and in some cases higher end devices, consider reducing the amount the component is used.\nRecommended count: 10, current count 19."
+      ],
+      "DescriptionValues": [
+        "ParticleSystem"
+      ],
+      "DetailsValues": [
+        "ParticleSystem",
+        "10",
+        "19"
+      ],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "756f85e1-bdc0-4c7a-a1c9-55e0e5c02d7f",
+      "Order": 2,
+      "Timestamp": 1755615167266,
+      "Stage": 1,
+      "ErrorType": 0,
+      "ErrorCode": "LP1032",
+      "Description": "Package(s) is not supported in Luna",
+      "Details": [
+        "Currently package(s) com.unity.timeline are not supported in Luna. We recommend you to remove it and workaround it's functionality."
+      ],
+      "DescriptionValues": [
+        "com.unity.timeline (1.7.7)"
+      ],
+      "DetailsValues": [
+        "com.unity.timeline"
+      ],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "C:/Users/ASUS/Documents/GitHub/Basketball/Packages\\manifest.json",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "6af8d14d-aab5-44b5-9c77-df8c09da0d5f",
+      "Order": 3,
+      "Timestamp": 1755615167267,
+      "Stage": 1,
+      "ErrorType": 2,
+      "ErrorCode": "LP1010",
+      "Description": "Looks like a collider was scaled, this might affect performance.",
+      "Details": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "dunkTriggerBottom",
+        "dunkTriggerTop",
+        "CubeBottom",
+        "Cube",
+        "Cube",
+        "Cube",
+        "Cube",
+        "Cube",
+        "Cube",
+        "Cube",
+        "Cube",
+        "Cube",
+        "ball0",
+        "ball1",
+        "ball2",
+        "ball3",
+        "ball4",
+        "ball5",
+        "ball6",
+        "ball7",
+        "diemchon"
+      ],
+      "DescriptionValues": [],
+      "DetailsValues": [],
+      "LogCount": 26,
+      "LinePosition": 0,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "826a1f24-022f-4287-a9bd-ff5123d29416",
+      "Order": 4,
+      "Timestamp": 1755615183312,
+      "Stage": 3,
+      "ErrorType": 0,
+      "ErrorCode": "LP3016",
+      "Description": "Msbuild failed when processing the file 'C:\\Users\\ASUS\\Downloads\\6.4.0\\pipeline\\templates\\LunaCompiler\\Scripts\\Scripts.csproj' with message: C:\\Users\\ASUS\\Downloads\\6.4.0\\tools\\msbuild-mono-custom\\Microsoft.Common.CurrentVersion.targets: (1232, 5): The reference assemblies for .NETFramework,Version=v4.7 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks",
+      "Details": null,
+      "DescriptionValues": [
+        "Msbuild failed when processing the file 'C:\\Users\\ASUS\\Downloads\\6.4.0\\pipeline\\templates\\LunaCompiler\\Scripts\\Scripts.csproj' with message: C:\\Users\\ASUS\\Downloads\\6.4.0\\tools\\msbuild-mono-custom\\Microsoft.Common.CurrentVersion.targets: (1232, 5): The reference assemblies for .NETFramework,Version=v4.7 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks"
+      ],
+      "DetailsValues": null,
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 1
+    }
+  ]
+}

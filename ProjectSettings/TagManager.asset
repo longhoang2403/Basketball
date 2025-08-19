@@ -17,6 +17,7 @@ TagManager:
   - ball7
   - ball0
   - Check
+  - basketS
   layers:
   - Default
   - TransparentFX

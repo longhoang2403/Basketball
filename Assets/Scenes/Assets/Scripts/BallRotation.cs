@@ -6,6 +6,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class BallRotation : MonoBehaviour
 {
     public float rotationMultiplier = 50f;   // Hệ số nhân tốc độ xoay
+    public bool basket = false;
     public bool baskets = false;
     public bool floors = false;
     private Vector3 lastPosition;
@@ -54,14 +55,21 @@ public class BallRotation : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("basketS"))
+        {
+            basket = true;
+        }
         if (other.CompareTag("basket"))
         {
-            baskets = true;
-            GameController gameController = FindObjectOfType<GameController>();
-            if (gameController != null)
+            if (basket==true)
             {
-                gameController.Score = gameController.Score + 1;
-                gameController.HighestCurrently = gameController.HighestCurrently + 1;
+                baskets = true;
+                GameController gameController = FindObjectOfType<GameController>();
+                if (gameController != null)
+                {
+                    gameController.Score = gameController.Score + 1;
+                    gameController.HighestCurrently = gameController.HighestCurrently + 1;
+                }
             }
         }
     }
@@ -81,6 +89,7 @@ public class BallRotation : MonoBehaviour
                 }
             }
             floors = true;
+            basket = false;
         }
     }
 }
