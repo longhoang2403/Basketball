@@ -779,6 +779,7 @@ MonoBehaviour:
   Highest: 0
   HighestCurrently: 0
   startchainParticle: {fileID: 2878013522007032693}
+  ChainLightsFull: {fileID: 2878013522007032695}
   targetObject: {fileID: 2878013518701920421}
 --- !u!82 &868484296
 AudioSource:

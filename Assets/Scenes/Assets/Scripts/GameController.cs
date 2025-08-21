@@ -15,9 +15,15 @@ public class GameController : MonoBehaviour
     private float playTime = 0f;
     private bool hasShownNotification = false;
     public ParticleSystem startchainParticle;
+    public ParticleSystem ChainLightsFull;
     public GameObject targetObject;
+    private void Start()
+    {
+       // ChainLightsFull.Play();
+    }
     void Update()
     {
+        ChainLightsFull.Play();
         playTime += Time.deltaTime;
         int secondsPlayed = Mathf.FloorToInt(playTime);
         timerText.text = secondsPlayed.ToString();
